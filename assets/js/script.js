@@ -1,4 +1,23 @@
-var maxNums = 100;
+var difficulty = parseInt(prompt("Scegli una difficoltà tra 0, 1 e 2"));
+
+if (difficulty == 0) {
+
+  var maxNums = 100;
+
+} else if (difficulty == 1) {
+
+  var maxNums = 80;
+
+} else if (difficulty == 2) {
+
+  var maxNums = 50;
+
+} else {
+
+  alert("Dato non valido, riprova.");
+
+}
+
 var numBombs = 16;
 
 var maxTries = maxNums - numBombs;
@@ -21,10 +40,8 @@ while (gameEnded === false) {
 
   } else if (arrayBombs.includes(number) === true) {
 
-    alert("Hai perso.");
-
-    text += "Hai fatto " + arrayNumPlayed.length + " tentativi.\nIl numero " + number + " era una bomba.";
-
+    text += "Hai perso.\nHai fatto " + arrayNumPlayed.length + " tentativi.\nIl numero " + number + " era una bomba.";
+    textInserted += number;
     gameEnded = true;
 
   } else if (number > maxNums) {
@@ -68,11 +85,11 @@ function bombsGenerator(bombs,max) {
 
       bombsArray.push(bombPlace);
 
-      textBombs += bombPlace + ", ";
-
     }
 
   }
+
+  textBombs += bombsArray;
 
   return bombsArray;
 
